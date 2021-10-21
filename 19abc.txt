@@ -1,0 +1,24 @@
+19a:
+create a special or ordinary file using mknod command
+mknod [OPTION]... NAME TYPE [MAJOR MINOR]
+
+options: -m --mode 
+			set file permission bits to mode
+			
+TYPE:	p --create a fifo
+		b -- create a block (buffered) special file
+		c, u -- create a character (unbuffered) special file		
+
+$ mknod -m 0666 myfifo p
+
+19b:
+create a fifo using mkfifo command
+
+$ mkfifo myfifo
+
+19c:
+Run 19d and 19e using strace command
+strace ./19d >19d_trace.txt
+strace ./19e >19e_trace.txt
+
+mkfifo uses mknod internally and mkfifo gives priviledge to change to change file permission whereas mknod doesn't allow to change file permission
